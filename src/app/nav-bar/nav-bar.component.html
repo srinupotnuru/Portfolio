@@ -2,8 +2,12 @@
   <div class="title">
     <h2>{{ title }}</h2>
   </div>
-  <div class="nav-items">
-    <div class="item" *ngFor="let item of items">
+  <div class="menu" (click)="menu = !menu">
+    : : :<br />
+    : : :
+  </div>
+  <div class="nav-items" *ngIf="menu">
+    <div class="item" *ngFor="let item of items" (click)="go(item)">
       <span>{{ item }}</span>
     </div>
   </div>

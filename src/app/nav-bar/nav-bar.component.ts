@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   constructor() {}
+  menu: boolean = false;
   title = 'Ram Kumar';
   items = ['Home', 'About', 'Resume', 'Dicussions', 'Contact Us'];
+
+  go(des: String) {
+    document
+      .getElementById(des.toLowerCase().split(' ').join(''))
+      .scrollIntoView({ behavior: 'smooth' });
+  }
 
   ngOnInit(): void {
     window.addEventListener('scroll', (event) => {

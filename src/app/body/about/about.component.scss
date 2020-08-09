@@ -22,3 +22,28 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .about {
+    max-width: 100vw;
+    .content {
+      p {
+        max-width: 90vw;
+      }
+
+      .pan {
+        flex-direction: column;
+        align-items: center;
+
+        ng-lottie {
+          width: 250px !important;
+          height: 250px !important;
+        }
+
+        .details {
+          max-width: 95vw;
+        }
+      }
+    }
+  }
+}

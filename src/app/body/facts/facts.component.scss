@@ -32,3 +32,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .facts {
+    width: 99vw;
+    .numbers {
+      .row {
+        justify-content: space-evenly;
+        .item {
+          margin-left: 0px !important;
+        }
+      }
+    }
+  }
+}
