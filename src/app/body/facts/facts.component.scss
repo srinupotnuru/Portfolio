@@ -1,0 +1,34 @@
+.facts {
+  max-width: 90%;
+  .details {
+    margin-top: 20px;
+    span {
+      font-family: "Recursive", sans-serif;
+      color: rgb(51, 51, 51);
+      font-size: 14px;
+    }
+    .numbers {
+      .row {
+        display: flex;
+
+        .item {
+          width: 50%;
+          color: #050d18;
+          margin-left: 60px;
+          font-family: "Raleway", sans-serif;
+          h1 {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          }
+          span {
+            strong {
+              font-weight: 700;
+              color: rgb(18, 47, 87);
+            }
+          }
+        }
+      }
+    }
+  }
+}

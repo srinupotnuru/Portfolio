@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@500&display=swap");
+
+html,
+body {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  user-select: none;
+  // border: 1px solid red;
+}
