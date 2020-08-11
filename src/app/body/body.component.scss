@@ -6,8 +6,7 @@
   align-items: start;
   .tab {
     margin-top: 50px;
-    width: 90vw;
-  }
+     }
 }
 .header {
   h2 {
@@ -27,5 +26,8 @@
     max-width: 100vw;
     padding: 20px;
     padding-top: 0px;
+    .tab {
+      width: 90vw; 
+    }
   }
 }
