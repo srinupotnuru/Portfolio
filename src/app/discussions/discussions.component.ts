@@ -18,5 +18,13 @@ export class DiscussionsComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
+  setNav() {
+    let nav_length = document.getElementById('nav').clientHeight;
+    document.getElementById('nav-support').style.height =
+      nav_length.toString() + 'px';
+  }
+
+  ngOnInit(): void {
+    this.setNav();
+  }
 }

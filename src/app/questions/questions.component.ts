@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from 'firebase';
 
 @Component({
   selector: 'app-questions',
@@ -13,15 +11,15 @@ import { User } from 'firebase';
 })
 export class QuestionsComponent implements OnInit {
   discussions = [];
-  user: User;
+  user;
   input = false;
 
-  constructor(private fire: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private fire: AngularFirestore) {
     this.setUser();
   }
 
   async setUser() {
-    this.user = await this.auth.currentUser;
+    this.user = JSON.parse(sessionStorage.getItem('user'));
     this.fire
       .collection('discussions/' + this.user.email + '/questions')
       .valueChanges()
@@ -45,7 +43,7 @@ export class QuestionsComponent implements OnInit {
         .add({
           title: ti.value,
           question: que.value,
-          name: this.user.displayName,
+          name: this.user.name,
           email: this.user.email,
           pic: this.user.photoURL,
         });
@@ -54,5 +52,13 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  setNav() {
+    let nav_length = document.getElementById('nav').clientHeight;
+    document.getElementById('nav-support').style.height =
+      nav_length.toString() + 'px';
+  }
+
+  ngOnInit(): void {
+    this.setNav();
+  }
 }

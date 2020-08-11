@@ -10,15 +10,15 @@
     <div class="item" *ngFor="let item of items" (click)="go(item)">
       <span>{{ item }}</span>
     </div>
-    <div class="item" *ngIf="admin" (click)="go('Discussions')">
+    <div class="item" (click)="go('Discussions')">
       <span>Discussions</span>
     </div>
-    <div class="item" *ngIf="!admin && authState" (click)="go('myquestions')">
+    <div class="item" *ngIf="authState" (click)="go('myquestions')">
       <span>My Questions</span>
     </div>
     <div class="item user" *ngIf="authState" (click)="signOut()">
       Sign Out
-      <img src="{{ user.photoURL }}" />
+      <img src="{{ user.pic }}" />
     </div>
     <div class="item" *ngIf="!authState" (click)="signIn()">
       Sign In
@@ -28,15 +28,15 @@
     <div class="item" *ngFor="let item of items" (click)="go(item)">
       <span>{{ item }}</span>
     </div>
-    <div class="item" *ngIf="admin" (click)="go('Discussions')">
+    <div class="item" (click)="go('Discussions')">
       <span>Discussions</span>
     </div>
-    <div class="item" *ngIf="!admin && authState" (click)="go('myquestions')">
+    <div class="item" *ngIf="authState" (click)="go('myquestions')">
       <span>My Questions</span>
     </div>
     <div class="item user" *ngIf="authState" (click)="signOut()">
       Sign Out
-      <img src="{{ user.photoURL }}" />
+      <img src="{{ user.pic }}" />
     </div>
     <div class="item" *ngIf="!authState" (click)="signIn()">
       Sign In

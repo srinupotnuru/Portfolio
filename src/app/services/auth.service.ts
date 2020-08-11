@@ -13,6 +13,8 @@ export class AuthService {
   }
 
   public signOut() {
+    sessionStorage.clear();
     this.authFire.signOut();
+    window.location.reload();
   }
 }

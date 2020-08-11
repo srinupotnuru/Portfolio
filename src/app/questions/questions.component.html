@@ -1,3 +1,16 @@
+<div id="nav-support"></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="create">
+  <button (click)="createQuestion()"><strong>Create Question +</strong></button>
+</div>
+<br />
+<br />
+
 <div class="discussions">
   <div class="question" *ngFor="let item of discussions">
     <div class="question-header">
@@ -19,9 +32,7 @@
     </div>
   </div>
 </div>
-<div class="create">
-  <button (click)="createQuestion()"><strong>Create Question +</strong></button>
-</div>
+
 <div class="input" *ngIf="input">
   <div class="in">
     <input required id="title" class="in-data" placeholder="Title" />
