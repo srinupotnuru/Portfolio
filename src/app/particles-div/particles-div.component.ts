@@ -9,10 +9,10 @@ declare var particlesJS: any;
 export class ParticlesDivComponent implements OnInit {
   canvas;
   links = [
-    'https://images.pexels.com/photos/1841841/pexels-photo-1841841.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    'https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1501471984908-815b996862f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    'assets/1-min.jpeg',
+    'assets/2-min.jpg',
+    'assets/3-min.jpg',
+    'assets/4-min.jpg',
   ];
   index = 0;
   constructor() {}

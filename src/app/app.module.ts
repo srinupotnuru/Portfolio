@@ -15,6 +15,10 @@ import { InterestsComponent } from './body/interests/interests.component';
 import { ResumeComponent } from './body/resume/resume.component';
 import { TestimonialsComponent } from './body/testimonials/testimonials.component';
 import { ContactComponent } from './body/contact/contact.component';
+import { DiscussionsComponent } from './discussions/discussions.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { QuestionsComponent } from './questions/questions.component';
 
 export function playerFactory() {
   return player;
@@ -33,12 +37,15 @@ export function playerFactory() {
     ResumeComponent,
     TestimonialsComponent,
     ContactComponent,
+    DiscussionsComponent,
+    QuestionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ParticlesModule,
     LottieModule.forRoot({ player: playerFactory }),
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent],

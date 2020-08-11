@@ -1,0 +1,21 @@
+<div class="discussions">
+  <div class="question" *ngFor="let item of discussions">
+    <div class="question-header">
+      <div class="title">
+        <h3>{{ item.title }}</h3>
+      </div>
+      <div class="sub-title">
+        <span>{{ item.question }}</span>
+      </div>
+    </div>
+    <div class="user">
+      <div class="pic"><img src="{{ item.pic }}" /></div>
+      <div class="details">
+        <div class="name">
+          <strong>{{ item.name }}</strong>
+        </div>
+        <div class="emai">{{ item.email }}</div>
+      </div>
+    </div>
+  </div>
+</div>

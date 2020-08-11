@@ -1,0 +1,39 @@
+<div class="discussions">
+  <div class="question" *ngFor="let item of discussions">
+    <div class="question-header">
+      <div class="title">
+        <h3>{{ item.title }}</h3>
+      </div>
+      <div class="sub-title">
+        <span>{{ item.question }}</span>
+      </div>
+    </div>
+    <div class="user">
+      <div class="pic"><img src="{{ item.pic }}" /></div>
+      <div class="details">
+        <div class="name">
+          <strong>{{ item.name }}</strong>
+        </div>
+        <div class="emai">{{ item.email }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="create">
+  <button (click)="createQuestion()"><strong>Create Question +</strong></button>
+</div>
+<div class="input" *ngIf="input">
+  <div class="in">
+    <input required id="title" class="in-data" placeholder="Title" />
+    <textarea
+      required
+      id="question"
+      class="in-data"
+      placeholder="Question"
+    ></textarea>
+  </div>
+  <div class="action">
+    <button class="ok" (click)="create()">OK</button>
+    <button class="cancel" (click)="input = false">Cancel</button>
+  </div>
+</div>

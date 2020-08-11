@@ -1,0 +1,80 @@
+.create {
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  button {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    color: white;
+    background-color: black;
+    border: 0;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.26);
+
+    &:active {
+      box-shadow: 5px 5px rgba(0, 0, 0, 0.26);
+    }
+  }
+}
+
+.input {
+  width: 40%;
+  height: 30%;
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 10px 20px rgb(26, 26, 26);
+  padding: 30px;
+  background-color: white;
+  .in {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .in-data {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 5px solid grey;
+
+      &:focus {
+        border: 5px solid black;
+      }
+    }
+  }
+  .action {
+    margin: 10px;
+    button {
+      margin-right: 10px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 10px;
+      color: black;
+      border: 0;
+      border: 5px solid grey;
+    }
+
+    .ok:hover {
+      border: 5px solid rgb(74, 150, 24);
+    }
+
+    .cancel:hover {
+      border: 5px solid rgb(201, 39, 39);
+    }
+  }
+  animation: size 500ms ease;
+}
+
+@keyframes size {
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+  100% {
+    width: 40%;
+    height: 30%;
+  }
+}
