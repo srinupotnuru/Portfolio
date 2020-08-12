@@ -19,6 +19,7 @@ import { DiscussionsComponent } from './discussions/discussions.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { QuestionsComponent } from './questions/questions.component';
+import { FormsModule } from '@angular/forms';
 
 export function playerFactory() {
   return player;
@@ -46,6 +47,7 @@ export function playerFactory() {
     ParticlesModule,
     LottieModule.forRoot({ player: playerFactory }),
     AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -22,7 +22,7 @@ export class QuestionsComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem('user'));
     this.fire
       .collection('discussions/' + this.user.email + '/questions')
-      .valueChanges()
+      .snapshotChanges()
       .subscribe((docs) => {
         this.discussions = docs;
       });

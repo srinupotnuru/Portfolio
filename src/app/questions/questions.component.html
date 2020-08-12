@@ -4,6 +4,8 @@
 <br />
 <br />
 <br />
+<br />
+<br />
 
 <div class="create">
   <button (click)="createQuestion()"><strong>Create Question +</strong></button>
@@ -15,19 +17,22 @@
   <div class="question" *ngFor="let item of discussions">
     <div class="question-header">
       <div class="title">
-        <h3>{{ item.title }}</h3>
+        <h3>{{ item.payload.doc.data().title }}</h3>
       </div>
       <div class="sub-title">
-        <span>{{ item.question }}</span>
+        <span>{{ item.payload.doc.data().question }}</span>
+      </div>
+      <div class="answer">
+        <span>Answer: {{ item.payload.doc.data().answer }}</span>
       </div>
     </div>
     <div class="user">
-      <div class="pic"><img src="{{ item.pic }}" /></div>
+      <div class="pic"><img src="{{ item.payload.doc.data().pic }}" /></div>
       <div class="details">
         <div class="name">
-          <strong>{{ item.name }}</strong>
+          <strong>{{ item.payload.doc.data().name }}</strong>
         </div>
-        <div class="emai">{{ item.email }}</div>
+        <div class="emai">{{ item.payload.doc.data().email }}</div>
       </div>
     </div>
   </div>

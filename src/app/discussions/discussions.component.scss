@@ -1,40 +1,47 @@
-.discussions {
-  width: 90vw;
-  margin: auto;
-  .question {
-    box-shadow: 2px 2px 8px rgb(211, 211, 211);
-    padding: 20px;
+.dis-tab {
+  height: 85vh;
+  overflow-y: scroll;
+  .discussions {
     margin: auto;
-    margin-bottom: 20px;
-    width: 50%;
+    .question {
+      box-shadow: 2px 2px 8px rgb(211, 211, 211);
+      padding: 20px;
+      margin: auto;
+      margin-bottom: 20px;
+      width: 50%;
 
-    &:hover {
-      box-shadow: 2px 2px 20px rgb(211, 211, 211);
-    }
+      &:hover {
+        box-shadow: 2px 2px 20px rgb(211, 211, 211);
+      }
 
-    .question-header {
-      .title {
-        h2 {
-          margin: 0;
+      .question-header {
+        .title {
+          h2 {
+            margin: 0;
+          }
+        }
+        .sub-title {
+          color: rgb(83, 83, 83);
+        }
+        .answer {
+          margin-top: 10px;
+          color: rgb(58, 58, 236);
         }
       }
-      .sub-title {
-        color: rgb(83, 83, 83);
-      }
-    }
-    .user {
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-      .pic {
-        img {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
+      .user {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        .pic {
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+          }
         }
-      }
-      .details {
-        padding: 10px;
+        .details {
+          padding: 10px;
+        }
       }
     }
   }
@@ -56,4 +63,47 @@
   background-color: black;
   width: 100%;
   position: fixed;
+}
+
+#create {
+  padding: 30px;
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 5px 5px 10px rgb(116, 116, 116);
+  textarea {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid grey;
+
+    &:focus {
+      border: 5px solid black;
+    }
+  }
+  .action {
+    margin: 10px;
+    display: flex;
+    button {
+      margin-right: 10px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 10px;
+      color: black;
+      border: 0;
+      border: 5px solid grey;
+    }
+
+    .ok:hover {
+      border: 5px solid rgb(74, 150, 24);
+    }
+
+    .cancel:hover {
+      border: 5px solid rgb(201, 39, 39);
+    }
+  }
 }

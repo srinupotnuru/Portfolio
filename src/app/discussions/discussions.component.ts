@@ -8,14 +8,29 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class DiscussionsComponent implements OnInit {
   discussions = [];
+  answer;
+  currentId;
+  question;
+  email;
 
   constructor(private fire: AngularFirestore) {
     fire
       .collectionGroup('questions')
-      .valueChanges()
+      .snapshotChanges()
       .subscribe((docs) => {
         this.discussions = docs;
       });
+  }
+
+  postAnswer() {
+    this.answerState = false;
+    this.fire
+      .collection('discussions')
+      .doc(this.email)
+      .collection('questions')
+      .doc(this.currentId.toString())
+      .update({ answer: this.answer });
+    this.answer = '';
   }
 
   setNav() {
@@ -23,8 +38,20 @@ export class DiscussionsComponent implements OnInit {
     document.getElementById('nav-support').style.height =
       nav_length.toString() + 'px';
   }
+  answerState: boolean = false;
+
+  ansQuestion(doc) {
+    if (JSON.parse(sessionStorage.getItem('user')).isAdmin) {
+      this.currentId = doc.id;
+      this.question = doc.data().title;
+      this.email = doc.data().email;
+      this.answerState = true;
+    }
+  }
 
   ngOnInit(): void {
     this.setNav();
   }
+
+  create() {}
 }
