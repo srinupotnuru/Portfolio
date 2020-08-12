@@ -4,15 +4,29 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: [
-    './questions.component.scss',
-    '../discussions/discussions.component.scss',
-  ],
+  styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
   discussions = [];
   user;
   input = false;
+
+  selectValue;
+  tempDiscussions = [];
+
+  select() {
+    if (this.selectValue == 'all') {
+      this.discussions = this.tempDiscussions;
+    } else if (this.selectValue == 'answered') {
+      this.discussions = this.tempDiscussions.filter((value) => {
+        return value.payload.doc.data().answer.length > 0;
+      });
+    } else {
+      this.discussions = this.tempDiscussions.filter((value) => {
+        return value.payload.doc.data().answer.length == 0;
+      });
+    }
+  }
 
   constructor(private fire: AngularFirestore) {
     this.setUser();
@@ -25,6 +39,7 @@ export class QuestionsComponent implements OnInit {
       .snapshotChanges()
       .subscribe((docs) => {
         this.discussions = docs;
+        this.tempDiscussions = docs;
       });
   }
 

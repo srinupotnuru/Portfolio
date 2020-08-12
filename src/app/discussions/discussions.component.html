@@ -3,6 +3,13 @@
 <br />
 <br />
 <br />
+<div class="select">
+  <select [(ngModel)]="selectValue">
+    <option (click)="select()" value="all">All</option>
+    <option (click)="select()" value="answered">Answered</option>
+    <option (click)="select()" value="notanswered">Not Answered</option>
+  </select>
+</div>
 <div class="dis-tab">
   <div id="discussions" class="discussions">
     <div
@@ -10,7 +17,7 @@
       *ngFor="let item of discussions"
       (click)="ansQuestion(item.payload.doc)"
       [style.border]="
-        item.payload.doc.data().answer != null
+        item.payload.doc.data().answer.length > 0
           ? '5px solid rgb(101, 139, 235)'
           : 'none'
       "
@@ -22,7 +29,7 @@
         <div class="sub-title">
           <span>{{ item.payload.doc.data().question }}</span>
         </div>
-        <div class="answer" *ngIf="item.payload.doc.data().answer">
+        <div class="answer" *ngIf="item.payload.doc.data().answer.length > 0">
           <span>Answer: {{ item.payload.doc.data().answer }}</span>
         </div>
       </div>
@@ -38,6 +45,7 @@
     </div>
   </div>
 </div>
+
 <div id="create" *ngIf="answerState">
   <h3>{{ question }}</h3>
   <textarea [(ngModel)]="answer" placeholder="Your Answer"></textarea>

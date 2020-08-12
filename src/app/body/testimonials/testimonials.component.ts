@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'testimonials',
@@ -6,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./testimonials.component.scss', '../body.component.scss'],
 })
 export class TestimonialsComponent implements OnInit {
-  constructor() {}
+  constructor(private fire: AngularFirestore) {
+    fire
+      .doc('config/fb')
+      .get()
+      .subscribe((doc) => {
+        this.posts = doc.data().posts;
+      });
+  }
+
+  posts = [];
 
   ngOnInit(): void {}
 }

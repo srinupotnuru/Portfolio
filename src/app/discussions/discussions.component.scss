@@ -1,5 +1,24 @@
+.select {
+  margin: auto;
+  position: fixed;
+  right: 20px;
+  select {
+    padding: 10px;
+  }
+}
+@keyframes size {
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+  100% {
+    width: 50%;
+    height: 30%;
+  }
+}
 .dis-tab {
   height: 85vh;
+
   overflow-y: scroll;
   .discussions {
     margin: auto;
@@ -8,7 +27,7 @@
       padding: 20px;
       margin: auto;
       margin-bottom: 20px;
-      width: 50%;
+      width: 80%;
 
       &:hover {
         box-shadow: 2px 2px 20px rgb(211, 211, 211);
@@ -49,9 +68,10 @@
 @media only screen and (max-width: 600px) {
   .discussions {
     .question {
-      width: 90%;
+      width: 100%;
       .user {
         .details {
+          width: 80%;
           overflow-wrap: break-word;
         }
       }
@@ -71,6 +91,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 80vw;
   transform: translate(-50%, -50%);
   background-color: white;
   box-shadow: 5px 5px 10px rgb(116, 116, 116);

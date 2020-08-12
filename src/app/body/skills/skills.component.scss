@@ -12,4 +12,16 @@
       }
     }
   }
+
+  iframe {
+    height: 375px;
+    width: 552px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  iframe {
+    width: 90vw !important;
+    height: 65vw !important;
+  }
 }

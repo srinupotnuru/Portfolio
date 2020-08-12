@@ -12,6 +12,7 @@ export class DiscussionsComponent implements OnInit {
   currentId;
   question;
   email;
+  tempDiscussions = [];
 
   constructor(private fire: AngularFirestore) {
     fire
@@ -19,6 +20,7 @@ export class DiscussionsComponent implements OnInit {
       .snapshotChanges()
       .subscribe((docs) => {
         this.discussions = docs;
+        this.tempDiscussions = docs;
       });
   }
 
@@ -51,6 +53,22 @@ export class DiscussionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.setNav();
+  }
+
+  selectValue;
+
+  select() {
+    if (this.selectValue == 'all') {
+      this.discussions = this.tempDiscussions;
+    } else if (this.selectValue == 'answered') {
+      this.discussions = this.tempDiscussions.filter((value) => {
+        return value.payload.doc.data().answer.length > 0;
+      });
+    } else {
+      this.discussions = this.tempDiscussions.filter((value) => {
+        return value.payload.doc.data().answer.length == 0;
+      });
+    }
   }
 
   create() {}

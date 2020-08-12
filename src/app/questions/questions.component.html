@@ -3,36 +3,42 @@
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
 
 <div class="create">
   <button (click)="createQuestion()"><strong>Create Question +</strong></button>
+  <div class="select">
+    <select [(ngModel)]="selectValue">
+      <option (click)="select()" value="all">All</option>
+      <option (click)="select()" value="answered">Answered</option>
+      <option (click)="select()" value="notanswered">Not Answered</option>
+    </select>
+  </div>
 </div>
 <br />
 <br />
 
-<div class="discussions">
-  <div class="question" *ngFor="let item of discussions">
-    <div class="question-header">
-      <div class="title">
-        <h3>{{ item.payload.doc.data().title }}</h3>
-      </div>
-      <div class="sub-title">
-        <span>{{ item.payload.doc.data().question }}</span>
-      </div>
-      <div class="answer">
-        <span>Answer: {{ item.payload.doc.data().answer }}</span>
-      </div>
-    </div>
-    <div class="user">
-      <div class="pic"><img src="{{ item.payload.doc.data().pic }}" /></div>
-      <div class="details">
-        <div class="name">
-          <strong>{{ item.payload.doc.data().name }}</strong>
+<div class="dis-tab">
+  <div class="discussions">
+    <div class="question" *ngFor="let item of discussions">
+      <div class="question-header">
+        <div class="title">
+          <h3>{{ item.payload.doc.data().title }}</h3>
         </div>
-        <div class="emai">{{ item.payload.doc.data().email }}</div>
+        <div class="sub-title">
+          <span>{{ item.payload.doc.data().question }}</span>
+        </div>
+        <div class="answer">
+          <span>Answer: {{ item.payload.doc.data().answer }}</span>
+        </div>
+      </div>
+      <div class="user">
+        <div class="pic"><img src="{{ item.payload.doc.data().pic }}" /></div>
+        <div class="details">
+          <div class="name">
+            <strong>{{ item.payload.doc.data().name }}</strong>
+          </div>
+          <div class="emai">{{ item.payload.doc.data().email }}</div>
+        </div>
       </div>
     </div>
   </div>
