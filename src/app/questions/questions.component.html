@@ -1,16 +1,10 @@
-<div id="nav-support"></div>
-<br />
-<br />
-<br />
-<br />
-
 <div class="create">
   <button (click)="createQuestion()"><strong>Create Question +</strong></button>
   <div class="select">
-    <select [(ngModel)]="selectValue">
-      <option (click)="select()" value="all">All</option>
-      <option (click)="select()" value="answered">Answered</option>
-      <option (click)="select()" value="notanswered">Not Answered</option>
+    <select [(ngModel)]="selectValue" (click)="select()">
+      <option value="all">All</option>
+      <option value="answered">Answered</option>
+      <option value="notanswered">Not Answered</option>
     </select>
   </div>
 </div>
@@ -47,12 +41,7 @@
 <div class="input" *ngIf="input">
   <div class="in">
     <input required id="title" class="in-data" placeholder="Title" />
-    <textarea
-      required
-      id="question"
-      class="in-data"
-      placeholder="Question"
-    ></textarea>
+    <textarea required id="question" class="in-data" placeholder="Question"></textarea>
   </div>
   <div class="action">
     <button class="ok" (click)="create()">OK</button>

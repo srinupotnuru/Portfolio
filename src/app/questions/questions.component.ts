@@ -74,6 +74,6 @@ export class QuestionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setNav();
+    // this.setNav();
   }
 }

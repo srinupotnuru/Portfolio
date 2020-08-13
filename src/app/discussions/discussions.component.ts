@@ -55,9 +55,10 @@ export class DiscussionsComponent implements OnInit {
     this.setNav();
   }
 
-  selectValue;
+  selectValue='all';
 
   select() {
+    console.log('clicked...');
     if (this.selectValue == 'all') {
       this.discussions = this.tempDiscussions;
     } else if (this.selectValue == 'answered') {

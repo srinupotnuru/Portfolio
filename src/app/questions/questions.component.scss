@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   margin: auto;
+  margin-top: 100px;
   button {
     width: 50%;
     margin: auto;
@@ -76,7 +77,6 @@
 
 .input {
   width: 50%;
-  height: 30%;
   border-radius: 20px;
   position: fixed;
   top: 50%;
@@ -127,12 +127,10 @@
 
 @keyframes size {
   0% {
-    width: 0%;
-    height: 0%;
+    filter: blur(10px);
   }
   100% {
-    width: 50%;
-    height: 30%;
+    filter: blur(0px);
   }
 }
 #nav-support {
