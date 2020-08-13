@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   firebase: {
     apiKey: 'AIzaSyD_e0SuWfRgcjM3DzrTovLRMrl6-um_44E',
-    authDomain: 'ramakumar.in',
+    authDomain: 'portfolio-8d7a1.firebaseapp.com',
     databaseURL: 'https://portfolio-8d7a1.firebaseio.com',
     projectId: 'portfolio-8d7a1',
     storageBucket: 'portfolio-8d7a1.appspot.com',
