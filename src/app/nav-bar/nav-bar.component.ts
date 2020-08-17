@@ -22,6 +22,7 @@ export class NavBarComponent implements OnInit {
   authState: boolean = false;
   user;
   menu: boolean = false;
+  methods = false;
   title = 'Ram Kumar';
   items = ['Home', 'About', 'Resume', 'Contact Us'];
 
@@ -63,8 +64,8 @@ export class NavBarComponent implements OnInit {
     this.authOb.signOut();
   }
 
-  signIn() {
-    this.authOb.signIn();
+  signIn(type) {
+    this.authOb.signIn(type);
   }
 
   ngOnInit() {

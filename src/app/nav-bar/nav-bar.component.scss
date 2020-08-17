@@ -46,6 +46,52 @@
   }
 }
 
+.methods {
+  position: fixed;
+  padding: 30px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 20px rgb(180, 180, 180);
+  display: flex;
+  flex-direction: column;
+
+  .bt {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    img {
+      height: 35px;
+      width: auto;
+    }
+  }
+
+  .google {
+    background-color: #4285f4;
+    color: white;
+    padding: 3px;
+    p {
+      margin: 0;
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+    svg {
+      background-color: white;
+      padding: 10px;
+    }
+  }
+
+  .yahoo {
+    border: 5px solid #720e9e;
+    border-radius: 10px;
+    img {
+      height: 40px;
+    }
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .nav-bar {
     top: 0px;
