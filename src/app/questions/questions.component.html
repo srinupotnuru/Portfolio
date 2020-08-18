@@ -33,6 +33,12 @@
           </div>
           <div class="emai">{{ item.payload.doc.data().email }}</div>
         </div>
+        <div
+          class="delete"
+          (click)="del(item.payload.doc.id, item.payload.doc.data().email)"
+        >
+          Delete
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +47,12 @@
 <div class="input" *ngIf="input">
   <div class="in">
     <input required id="title" class="in-data" placeholder="Title" />
-    <textarea required id="question" class="in-data" placeholder="Question"></textarea>
+    <textarea
+      required
+      id="question"
+      class="in-data"
+      placeholder="Question"
+    ></textarea>
   </div>
   <div class="action">
     <button class="ok" (click)="create()">OK</button>

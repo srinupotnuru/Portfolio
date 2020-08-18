@@ -21,7 +21,17 @@ export class DiscussionsComponent implements OnInit {
       .subscribe((docs) => {
         this.discussions = docs;
         this.tempDiscussions = docs;
+        docs[1].payload.doc.id;
       });
+  }
+
+  del(id, email) {
+    this.fire
+      .collection('discussions')
+      .doc(email)
+      .collection('questions')
+      .doc(id)
+      .delete();
   }
 
   postAnswer() {
@@ -42,6 +52,17 @@ export class DiscussionsComponent implements OnInit {
   }
   answerState: boolean = false;
 
+  isAdmin() {
+    try {
+      if (JSON.parse(sessionStorage.getItem('user')).isAdmin) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      return false;
+    }
+  }
+
   ansQuestion(doc) {
     if (JSON.parse(sessionStorage.getItem('user')).isAdmin) {
       this.currentId = doc.id;
@@ -55,7 +76,7 @@ export class DiscussionsComponent implements OnInit {
     this.setNav();
   }
 
-  selectValue='all';
+  selectValue = 'all';
 
   select() {
     console.log('clicked...');

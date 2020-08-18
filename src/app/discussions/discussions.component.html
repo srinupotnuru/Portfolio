@@ -5,9 +5,9 @@
 <br />
 <div class="select">
   <select [(ngModel)]="selectValue" (click)="select()">
-    <option  value="all">All</option>
-    <option  value="answered">Answered</option>
-    <option  value="notanswered">Not Answered</option>
+    <option value="all">All</option>
+    <option value="answered">Answered</option>
+    <option value="notanswered">Not Answered</option>
   </select>
 </div>
 <div class="dis-tab">
@@ -40,6 +40,13 @@
             <strong>{{ item.payload.doc.data().name }}</strong>
           </div>
           <div class="email">{{ item.payload.doc.data().email }}</div>
+        </div>
+        <div
+          class="delete"
+          *ngIf="isAdmin() == true"
+          (click)="del(item.payload.doc.id, item.payload.doc.data().email)"
+        >
+          Delete
         </div>
       </div>
     </div>

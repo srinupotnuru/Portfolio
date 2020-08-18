@@ -32,6 +32,15 @@ export class QuestionsComponent implements OnInit {
     this.setUser();
   }
 
+  del(id, email) {
+    this.fire
+      .collection('discussions')
+      .doc(email)
+      .collection('questions')
+      .doc(id)
+      .delete();
+  }
+
   async setUser() {
     this.user = JSON.parse(sessionStorage.getItem('user'));
     this.fire

@@ -67,6 +67,16 @@
             border-radius: 50%;
           }
         }
+        .delete {
+          padding: 8px;
+          margin: 8px;
+          background-color: rgb(231, 69, 69);
+          color: white;
+          border-radius: 10px;
+          &:active {
+            box-shadow: 2px 2px 10px rgb(209, 209, 209);
+          }
+        }
         .details {
           padding: 10px;
         }
