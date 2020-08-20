@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-approve',
@@ -11,7 +12,7 @@ export class ApproveComponent implements OnInit {
   question;
   tempDiscussions = [];
 
-  constructor(private fire: AngularFirestore) {
+  constructor(private fire: AngularFirestore, private route: Router) {
     fire
       .collectionGroup('questions')
       .snapshotChanges()
@@ -22,7 +23,19 @@ export class ApproveComponent implements OnInit {
         });
         this.tempDiscussions = this.discussions;
       });
+
+    this.checkAdmin();
   }
+
+  checkAdmin() {
+    let user: any = sessionStorage.getItem('user');
+    user = JSON.parse(user);
+
+    if(!user.isAdmin) {
+      this.route.navigate(['home']);
+    }
+  }
+
   del(id, uid) {
     this.fire
       .collection('discussions')
