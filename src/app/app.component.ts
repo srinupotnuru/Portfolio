@@ -29,6 +29,7 @@ export class AppComponent {
     info['name'] = user.displayName;
     info['email'] = user.email;
     info['pic'] = user.photoURL;
+    info['uid'] = user.uid;
 
     let val = await this.fire
       .collection('config')

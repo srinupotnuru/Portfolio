@@ -15,7 +15,6 @@
     <div
       class="question"
       *ngFor="let item of discussions"
-      (click)="ansQuestion(item.payload.doc)"
       [style.border]="
         item.payload.doc.data().answer.length > 0
           ? '5px solid rgb(101, 139, 235)'
@@ -44,9 +43,16 @@
         <div
           class="delete"
           *ngIf="isAdmin() == true"
-          (click)="del(item.payload.doc.id, item.payload.doc.data().email)"
+          (click)="del(item.payload.doc.id, item.payload.doc.data().uid)"
         >
           Delete
+        </div>
+        <div
+          class="answer"
+          *ngIf="isAdmin() == true"
+          (click)="ansQuestion(item.payload.doc)"
+        >
+          Answer
         </div>
       </div>
     </div>

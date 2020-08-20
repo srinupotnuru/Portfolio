@@ -89,8 +89,8 @@
   width: 50%;
   border-radius: 20px;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
   box-shadow: 10px 10px 20px rgb(26, 26, 26);
   padding: 40px;
@@ -160,4 +160,10 @@
       }
     }
   }
+}
+
+#nav-support {
+  background-color: black;
+  width: 100%;
+  position: fixed;
 }

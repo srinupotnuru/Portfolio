@@ -66,6 +66,15 @@
       height: 35px;
       width: auto;
     }
+
+    button {
+      padding: 10px;
+      outline: 0;
+      border-radius: 5px;
+      background-color: rgb(184, 47, 47);
+      margin: 10px;
+      color: white;
+    }
   }
 
   .google {

@@ -11,7 +11,7 @@ export class DiscussionsComponent implements OnInit {
   answer;
   currentId;
   question;
-  email;
+  uid;
   tempDiscussions = [];
 
   constructor(private fire: AngularFirestore) {
@@ -19,16 +19,18 @@ export class DiscussionsComponent implements OnInit {
       .collectionGroup('questions')
       .snapshotChanges()
       .subscribe((docs) => {
-        this.discussions = docs;
         this.tempDiscussions = docs;
-        docs[1].payload.doc.id;
+        this.discussions = this.tempDiscussions.filter((value) => {
+          return value.payload.doc.data().approve == true;
+        });
+        this.tempDiscussions = this.discussions;
       });
   }
 
-  del(id, email) {
+  del(id, uid) {
     this.fire
       .collection('discussions')
-      .doc(email)
+      .doc(uid)
       .collection('questions')
       .doc(id)
       .delete();
@@ -38,7 +40,7 @@ export class DiscussionsComponent implements OnInit {
     this.answerState = false;
     this.fire
       .collection('discussions')
-      .doc(this.email)
+      .doc(this.uid)
       .collection('questions')
       .doc(this.currentId.toString())
       .update({ answer: this.answer });
@@ -67,7 +69,7 @@ export class DiscussionsComponent implements OnInit {
     if (JSON.parse(sessionStorage.getItem('user')).isAdmin) {
       this.currentId = doc.id;
       this.question = doc.data().title;
-      this.email = doc.data().email;
+      this.uid = doc.data().uid;
       this.answerState = true;
     }
   }
@@ -79,7 +81,6 @@ export class DiscussionsComponent implements OnInit {
   selectValue = 'all';
 
   select() {
-    console.log('clicked...');
     if (this.selectValue == 'all') {
       this.discussions = this.tempDiscussions;
     } else if (this.selectValue == 'answered') {
@@ -92,6 +93,4 @@ export class DiscussionsComponent implements OnInit {
       });
     }
   }
-
-  create() {}
 }

@@ -32,10 +32,10 @@ export class QuestionsComponent implements OnInit {
     this.setUser();
   }
 
-  del(id, email) {
+  del(id, uid) {
     this.fire
       .collection('discussions')
-      .doc(email)
+      .doc(uid)
       .collection('questions')
       .doc(id)
       .delete();
@@ -44,7 +44,7 @@ export class QuestionsComponent implements OnInit {
   async setUser() {
     this.user = JSON.parse(sessionStorage.getItem('user'));
     this.fire
-      .collection('discussions/' + this.user.email + '/questions')
+      .collection('discussions/' + this.user.uid + '/questions')
       .snapshotChanges()
       .subscribe((docs) => {
         this.discussions = docs;
@@ -62,27 +62,26 @@ export class QuestionsComponent implements OnInit {
     let que: any = document.getElementById('question');
 
     if (ti != null && que != null) {
-      this.fire
-        .collection('discussions/' + this.user.email + '/questions')
-        .add({
-          title: ti.value,
-          question: que.value,
-          name: this.user.name,
-          email: this.user.email,
-          pic: this.user.photoURL,
-        });
+      this.fire.collection('discussions/' + this.user.uid + '/questions').add({
+        title: ti.value,
+        question: que.value,
+        name: this.user.name,
+        email: this.user.email,
+        uid: this.user.uid,
+        pic: this.user.pic,
+        approve: false,
+        answer: '',
+      });
     } else {
       alert('Fields Are Empty !!');
     }
   }
 
   setNav() {
-    let nav_length = document.getElementById('nav').clientHeight;
-    document.getElementById('nav-support').style.height =
-      nav_length.toString() + 'px';
+    document.getElementById('nav').style.backgroundColor = 'black';
   }
 
   ngOnInit(): void {
-    // this.setNav();
+    this.setNav();
   }
 }

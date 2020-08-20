@@ -1,20 +1,10 @@
 <div id="nav-support"></div>
-
-<div class="create">
-  <button (click)="createQuestion()"><strong>Create Question +</strong></button>
-  <div class="select">
-    <select [(ngModel)]="selectValue" (click)="select()">
-      <option value="all">All</option>
-      <option value="answered">Answered</option>
-      <option value="notanswered">Not Answered</option>
-    </select>
-  </div>
-</div>
 <br />
 <br />
-
+<br />
+<br />
 <div class="dis-tab">
-  <div class="discussions">
+  <div id="discussions" class="discussions">
     <div class="question" *ngFor="let item of discussions">
       <div class="question-header">
         <div class="title">
@@ -23,7 +13,7 @@
         <div class="sub-title">
           <span>{{ item.payload.doc.data().question }}</span>
         </div>
-        <div class="answer">
+        <div class="answer" *ngIf="item.payload.doc.data().answer.length > 0">
           <span>Answer: {{ item.payload.doc.data().answer }}</span>
         </div>
       </div>
@@ -33,7 +23,7 @@
           <div class="name">
             <strong>{{ item.payload.doc.data().name }}</strong>
           </div>
-          <div class="emai">{{ item.payload.doc.data().email }}</div>
+          <div class="email">{{ item.payload.doc.data().email }}</div>
         </div>
         <div
           class="delete"
@@ -41,23 +31,13 @@
         >
           Delete
         </div>
+        <div
+          class="approve"
+          (click)="ok(item.payload.doc.id, item.payload.doc.data().uid)"
+        >
+          Approve
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="input" *ngIf="input">
-  <div class="in">
-    <input required id="title" class="in-data" placeholder="Title" />
-    <textarea
-      required
-      id="question"
-      class="in-data"
-      placeholder="Question"
-    ></textarea>
-  </div>
-  <div class="action">
-    <button class="ok" (click)="create()">OK</button>
-    <button class="cancel" (click)="input = false">Cancel</button>
   </div>
 </div>

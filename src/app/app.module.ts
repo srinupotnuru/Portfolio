@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { QuestionsComponent } from './questions/questions.component';
 import { FormsModule } from '@angular/forms';
+import { ApproveComponent } from './approve/approve.component';
 
 export function playerFactory() {
   return player;
@@ -40,6 +41,7 @@ export function playerFactory() {
     ContactComponent,
     DiscussionsComponent,
     QuestionsComponent,
+    ApproveComponent,
   ],
   imports: [
     BrowserModule,
