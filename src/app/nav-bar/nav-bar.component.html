@@ -37,6 +37,9 @@
     <div class="item" *ngIf="authState" (click)="go('myquestions')">
       <span>My Questions</span>
     </div>
+        <div class="item" *ngIf="authState && user.isAdmin" routerLink="/approve">
+      <span>Approve</span>
+    </div>
     <div class="item user" *ngIf="authState" (click)="signOut()">
       Sign Out
       <img src="{{ user.pic }}" />
