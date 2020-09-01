@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
     },
     {
       name: 'Email:',
-      tag: 'ramofficial445@gmail.com',
+      tag: 'official@ramakumar.in',
     },
     {
       name: 'Call:',
